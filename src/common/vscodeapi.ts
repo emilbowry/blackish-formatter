@@ -56,3 +56,4 @@ export function registerDocumentFormattingEditProvider(
 export function createLanguageStatusItem(id: string, selector: DocumentSelector): LanguageStatusItem {
     return languages.createLanguageStatusItem(id, selector);
 }
+  

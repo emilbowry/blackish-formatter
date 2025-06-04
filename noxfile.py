@@ -151,7 +151,7 @@ def lint(session: nox.Session) -> None:
 	)
 	session.run("isort", "--profile", "monochromatic", "--check", "noxfile.py")
 
-	# check formatting using black
+	# check formatting using monochromatic
 	session.install("monochromatic")
 	session.run("monochromatic", "--check", "./bundled/tool")
 	session.run(

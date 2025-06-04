@@ -90,7 +90,7 @@ def test_path():
 			ls_session.text_document_formatting(
 				{
 					"textDocument": {"uri": uri},
-					# `options` is not used by black
+					# `options` is not used by monochromatic
 					"options": {"tabSize": 4, "insertSpaces": True},
 				}
 			)

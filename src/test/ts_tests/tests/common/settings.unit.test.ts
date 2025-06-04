@@ -30,7 +30,7 @@ suite('Settings Tests', () => {
             configMock = TypeMoq.Mock.ofType<WorkspaceConfiguration>();
             pythonConfigMock = TypeMoq.Mock.ofType<WorkspaceConfiguration>();
             getConfigurationStub.callsFake((namespace: string, uri: Uri) => {
-                if (namespace.startsWith('black-formatter')) {
+                if (namespace.startsWith('monochromatic-formatter')) {
                     return configMock.object;
                 }
                 return pythonConfigMock.object;
@@ -75,7 +75,7 @@ suite('Settings Tests', () => {
                 .returns(() => 'monochromatic')
                 .verifiable(TypeMoq.Times.never());
 
-            const settings: ISettings = await getWorkspaceSettings('black-formatter', workspace1);
+            const settings: ISettings = await getWorkspaceSettings('monochromatic-formatter', workspace1);
 
             assert.deepStrictEqual(settings.cwd, workspace1.uri.fsPath);
             assert.deepStrictEqual(settings.args, []);
@@ -135,7 +135,7 @@ suite('Settings Tests', () => {
                 .returns(() => 'monochromatic')
                 .verifiable(TypeMoq.Times.never());
 
-            const settings: ISettings = await getWorkspaceSettings('black-formatter', workspace1, true);
+            const settings: ISettings = await getWorkspaceSettings('monochromatic-formatter', workspace1, true);
 
             assert.deepStrictEqual(settings.cwd, '${fileDirname}');
             assert.deepStrictEqual(settings.args, [
@@ -196,7 +196,7 @@ suite('Settings Tests', () => {
                 .returns(() => '${userHome}/bin/monochromatic')
                 .verifiable(TypeMoq.Times.never());
 
-            const settings: ISettings = await getWorkspaceSettings('black-formatter', workspace1);
+            const settings: ISettings = await getWorkspaceSettings('monochromatic-formatter', workspace1);
 
             assert.deepStrictEqual(settings.cwd, `${process.env.HOME || process.env.USERPROFILE}/bin`);
             // Legacy args should not be read anymore. They are deprecated.

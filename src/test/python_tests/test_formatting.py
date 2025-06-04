@@ -40,7 +40,7 @@ def test_formatting(sample: str):
 			actual = ls_session.text_document_formatting(
 				{
 					"textDocument": {"uri": uri},
-					# `options` is not used by black
+					# `options` is not used by monochromatic
 					"options": {"tabSize": 4, "insertSpaces": False},
 				}
 			)
@@ -82,7 +82,7 @@ def test_formatting_cell():
 		actual = ls_session.text_document_formatting(
 			{
 				"textDocument": {"uri": uri},
-				# `options` is not used by black
+				# `options` is not used by monochromatic
 				"options": {"tabSize": 4, "insertSpaces": False},
 			}
 		)
@@ -114,7 +114,7 @@ def test_skipping_site_packages_files():
 		actual = ls_session.text_document_formatting(
 			{
 				"textDocument": {"uri": uri},
-				# `options` is not used by black
+				# `options` is not used by monochromatic
 				"options": {"tabSize": 4, "insertSpaces": False},
 			}
 		)
@@ -155,7 +155,7 @@ def test_range_formatting(sample: str, ranges: str):
 				actual = ls_session.text_document_range_formatting(
 					{
 						"textDocument": {"uri": uri},
-						# `options` is not used by black
+						# `options` is not used by monochromatic
 						"options": {"tabSize": 4, "insertSpaces": False},
 						"range": {
 							"start": {"line": 0, "character": 0},
@@ -167,7 +167,7 @@ def test_range_formatting(sample: str, ranges: str):
 				actual = ls_session.text_document_ranges_formatting(
 					{
 						"textDocument": {"uri": uri},
-						# `options` is not used by black
+						# `options` is not used by monochromatic
 						"options": {"tabSize": 4, "insertSpaces": False},
 						"ranges": [
 							{

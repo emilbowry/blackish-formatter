@@ -74,7 +74,7 @@ RUNNER = pathlib.Path(__file__).parent / "lsp_runner.py"
 
 MAX_WORKERS = 5
 LSP_SERVER = server.LanguageServer(
-	name="black-server", version="v0.1.0", max_workers=MAX_WORKERS
+	name="monochromatic-server", version="v0.1.0", max_workers=MAX_WORKERS
 )
 
 
@@ -84,16 +84,16 @@ LSP_SERVER = server.LanguageServer(
 TOOL_MODULE = "monochromatic"
 TOOL_DISPLAY = "monochromatic Formatter"
 
-# Default arguments always passed to black.
+# Default arguments always passed to monochromatic.
 TOOL_ARGS = []
 
-# Minimum version of black supported.
+# Minimum version of monochromatic supported.
 MIN_VERSION = "0.0.2"
 
-# Minimum version of black that supports the `--line-ranges` CLI option.
+# Minimum version of monochromatic that supports the `--line-ranges` CLI option.
 LINE_RANGES_MIN_VERSION = (23, 11, 0)
 
-# Versions of black found by workspace
+# Versions of monochromatic found by workspace
 VERSION_LOOKUP: Dict[str, Tuple[int, int, int]] = {}
 
 # **********************************************************
@@ -207,7 +207,7 @@ def _formatting_helper(
 
 
 def _get_filename_for_black(document: workspace.Document) -> str:
-	"""Gets or generates a file name to use with black when formatting."""
+	"""Gets or generates a file name to use with monochromatic when formatting."""
 	if document.uri.startswith("vscode-notebook-cell") and document.path.endswith(
 		".ipynb"
 	):
@@ -236,7 +236,7 @@ def _match_line_endings(document: workspace.Document, text: str) -> str:
 
 
 def _get_args_by_file_extension(document: workspace.Document) -> List[str]:
-	"""Returns arguments used by black based on file extensions."""
+	"""Returns arguments used by monochromatic based on file extensions."""
 	if document.uri.startswith("vscode-notebook-cell"):
 		return []
 
@@ -307,11 +307,11 @@ def _update_workspace_settings_with_version_info(
 
 			if "The typed_ast package is required but not installed" in result.stdout:
 				log_to_output(
-					'Install black in your environment and set "black-formatter.importStrategy": "fromEnvironment"'
+					'Install monochromatic in your environment and set "monochromatic-formatter.importStrategy": "fromEnvironment"'
 				)
 
-			# This is text we get from running `black --version`
-			# black, 22.3.0 (compiled: yes) <--- This is the version we want.
+			# This is text we get from running `monochromatic --version`
+			# monochromatic, 22.3.0 (compiled: yes) <--- This is the version we want.
 			first_line = result.stdout.splitlines(keepends=False)[0]
 			parts = [v for v in first_line.split(" ") if re.match(r"\d+\.\d+\S*", v)]
 			if len(parts) == 1:
@@ -340,7 +340,9 @@ def _update_workspace_settings_with_version_info(
 				)
 
 		except:	# pylint: disable=bare-except
-			log_to_output(f"Error while detecting black version:\r\n{traceback.format_exc()}")
+			log_to_output(
+				f"Error while detecting monochromatic version:\r\n{traceback.format_exc()}"
+			)
 
 
 # *****************************************************

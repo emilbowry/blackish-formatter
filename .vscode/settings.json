@@ -15,7 +15,7 @@
     "[python]": {
         "diffEditor.ignoreTrimWhitespace": false,
         "editor.wordBasedSuggestions": "off",
-        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.defaultFormatter": "ms-python.monochromatic-formatter",
         "editor.formatOnSave": true
     },
     "python.testing.pytestArgs": ["src/test/python_tests"],

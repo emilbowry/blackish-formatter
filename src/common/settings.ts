@@ -39,8 +39,8 @@ function resolveVariables(
 ): string[] {
     for (const v of value) {
         if (typeof v !== 'string') {
-            traceError(`Value [${v}] must be "string" for \`black-formatter.${key}\`: ${value}`);
-            throw new Error(`Value [${v}] must be "string" for \`black-formatter.${key}\`: ${value}`);
+            traceError(`Value [${v}] must be "string" for \`monochromatic-formatter.${key}\`: ${value}`);
+            throw new Error(`Value [${v}] must be "string" for \`monochromatic-formatter.${key}\`: ${value}`);
         }
         if (v.startsWith('--') && v.includes(' ')) {
             traceError(
@@ -205,13 +205,13 @@ export function logLegacySettings(): void {
             const legacyArgs = legacyConfig.get<string[]>('formatting.blackArgs', []);
             const legacyPath = legacyConfig.get<string>('formatting.blackPath', '');
             if (legacyArgs.length > 0) {
-                traceWarn(`"python.formatting.blackArgs" is deprecated. Use "black-formatter.args" instead.`);
+                traceWarn(`"python.formatting.blackArgs" is deprecated. Use "monochromatic-formatter.args" instead.`);
                 traceWarn(`"python.formatting.blackArgs" for workspace ${workspace.uri.fsPath}:`);
                 traceWarn(`\n${JSON.stringify(legacyArgs, null, 4)}`);
             }
 
             if (legacyPath.length > 0 && legacyPath !== 'monochromatic') {
-                traceWarn(`"python.formatting.blackPath" is deprecated. Use "black-formatter.path" instead.`);
+                traceWarn(`"python.formatting.blackPath" is deprecated. Use "monochromatic-formatter.path" instead.`);
                 traceWarn(`"python.formatting.blackPath" for workspace ${workspace.uri.fsPath}:`);
                 traceWarn(`\n${JSON.stringify(legacyPath, null, 4)}`);
             }

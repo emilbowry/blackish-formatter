@@ -653,7 +653,7 @@ SOFTWARE.
 
 ---------------------------------------------------------
 
-black 22.3.0 - MIT
+monochromatic 22.3.0 - MIT
 
 
 (c) 2019 Reece Hart

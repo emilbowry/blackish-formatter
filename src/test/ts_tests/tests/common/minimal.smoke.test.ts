@@ -36,7 +36,7 @@ suite('Smoke Tests', function () {
     }
 
     async function ensureBlackExt(activate?: boolean): Promise<void> {
-        const extension = vscode.extensions.getExtension('ms-python.black-formatter');
+        const extension = vscode.extensions.getExtension('ms-python.monochromatic-formatter');
         assert.ok(extension, 'Black Formatter Extension not found');
         if (activate) {
             await extension?.activate();
@@ -49,7 +49,7 @@ suite('Smoke Tests', function () {
         await ensurePythonExt(true);
         await ensureBlackExt(false);
 
-        const extension = vscode.extensions.getExtension('ms-python.black-formatter');
+        const extension = vscode.extensions.getExtension('ms-python.monochromatic-formatter');
         if (extension) {
             let timeout = TIMEOUT;
             while (!extension.isActive && timeout > 0) {

@@ -10,13 +10,13 @@
     },
     "publisher": "ms-python",
     "license": "MIT",
-    "homepage": "https://github.com/Microsoft/vscode-black-formatter",
+    "homepage": "https://github.com/Microsoft/vscode-monochromatic-formatter",
     "repository": {
         "type": "git",
-        "url": "https://github.com/microsoft/vscode-black-formatter.git"
+        "url": "https://github.com/microsoft/vscode-monochromatic-formatter.git"
     },
     "bugs": {
-        "url": "https://github.com/Microsoft/vscode-black-formatter/issues"
+        "url": "https://github.com/Microsoft/vscode-monochromatic-formatter/issues"
     },
     "icon": "icon.png",
     "galleryBanner": {
@@ -61,7 +61,7 @@
         "pretest": "npm run compile-tests && npm run compile && npm run lint",
         "tests": "node ./out/test/ts_tests/runTest.js",
         "smoke-tests": "node ./out/test/ts_tests/runSmokeTest.js",
-        "vsce-package": "vsce package -o black-formatter.vsix",
+        "vsce-package": "vsce package -o monochromatic-formatter.vsix",
         "vscode:prepublish": "npm run package",
         "watch": "webpack --watch",
         "watch-tests": "tsc -p . -w --outDir out"
@@ -78,7 +78,7 @@
         ],
         "configuration": {
             "properties": {
-                "black-formatter.args": {
+                "monochromatic-formatter.args": {
                     "default": [],
                     "items": {
                         "type": "string"
@@ -87,7 +87,7 @@
                     "scope": "resource",
                     "type": "array"
                 },
-                "black-formatter.cwd": {
+                "monochromatic-formatter.cwd": {
                     "default": "${workspaceFolder}",
                     "markdownDescription": "%settings.cwd.description%",
                     "scope": "resource",
@@ -97,7 +97,7 @@
                         "${fileDirname}"
                     ]
                 },
-                "black-formatter.importStrategy": {
+                "monochromatic-formatter.importStrategy": {
                     "default": "useBundled",
                     "enum": [
                         "fromEnvironment",
@@ -111,7 +111,7 @@
                     "scope": "resource",
                     "type": "string"
                 },
-                "black-formatter.interpreter": {
+                "monochromatic-formatter.interpreter": {
                     "default": [],
                     "items": {
                         "type": "string"
@@ -120,7 +120,7 @@
                     "scope": "resource",
                     "type": "array"
                 },
-                "black-formatter.path": {
+                "monochromatic-formatter.path": {
                     "monochromatic": [],
                     "examples": [
                         [
@@ -139,7 +139,7 @@
                     "scope": "resource",
                     "type": "array"
                 },
-                "black-formatter.showNotifications": {
+                "monochromatic-formatter.showNotifications": {
                     "default": "off",
                     "enum": [
                         "always",
@@ -157,7 +157,7 @@
                     "scope": "machine",
                     "type": "string"
                 },
-                "black-formatter.serverTransport": {
+                "monochromatic-formatter.serverTransport": {
                     "default": "stdio",
                     "enum": [
                         "stdio",
@@ -177,7 +177,7 @@
             {
                 "title": "%command.restartServer%",
                 "category": "Black Formatter",
-                "command": "black-formatter.restart"
+                "command": "monochromatic-formatter.restart"
             }
         ]
     },
