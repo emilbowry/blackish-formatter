@@ -72,7 +72,7 @@ suite('Settings Tests', () => {
                 .verifiable(TypeMoq.Times.never());
             pythonConfigMock
                 .setup((c) => c.get('formatting.blackPath', ''))
-                .returns(() => 'black')
+                .returns(() => 'monochromatic')
                 .verifiable(TypeMoq.Times.never());
 
             const settings: ISettings = await getWorkspaceSettings('black-formatter', workspace1);
@@ -101,10 +101,10 @@ suite('Settings Tests', () => {
             configMock
                 .setup((c) => c.get<string[]>('path', []))
                 .returns(() => [
-                    '${userHome}/bin/black',
-                    '${workspaceFolder}/bin/black',
-                    '${workspaceFolder:workspace1}/bin/black',
-                    '${cwd}/bin/black',
+                    '${userHome}/bin/monochromatic',
+                    '${workspaceFolder}/bin/monochromatic',
+                    '${workspaceFolder:workspace1}/bin/monochromatic',
+                    '${cwd}/bin/monochromatic',
                     '${interpreter}',
                 ])
                 .verifiable(TypeMoq.Times.atLeastOnce());
@@ -132,7 +132,7 @@ suite('Settings Tests', () => {
                 .verifiable(TypeMoq.Times.never());
             pythonConfigMock
                 .setup((c) => c.get('formatting.blackPath', ''))
-                .returns(() => 'black')
+                .returns(() => 'monochromatic')
                 .verifiable(TypeMoq.Times.never());
 
             const settings: ISettings = await getWorkspaceSettings('black-formatter', workspace1, true);
@@ -145,10 +145,10 @@ suite('Settings Tests', () => {
                 process.cwd(),
             ]);
             assert.deepStrictEqual(settings.path, [
-                `${process.env.HOME || process.env.USERPROFILE}/bin/black`,
-                `${workspace1.uri.fsPath}/bin/black`,
-                `${workspace1.uri.fsPath}/bin/black`,
-                `${process.cwd()}/bin/black`,
+                `${process.env.HOME || process.env.USERPROFILE}/bin/monochromatic`,
+                `${workspace1.uri.fsPath}/bin/monochromatic`,
+                `${workspace1.uri.fsPath}/bin/monochromatic`,
+                `${process.cwd()}/bin/monochromatic`,
                 `${process.env.HOME || process.env.USERPROFILE}/bin/python`,
                 `${workspace1.uri.fsPath}/bin/python`,
                 `${workspace1.uri.fsPath}/bin/python`,
@@ -193,7 +193,7 @@ suite('Settings Tests', () => {
                 .verifiable(TypeMoq.Times.never());
             pythonConfigMock
                 .setup((c) => c.get('formatting.blackPath', ''))
-                .returns(() => '${userHome}/bin/black')
+                .returns(() => '${userHome}/bin/monochromatic')
                 .verifiable(TypeMoq.Times.never());
 
             const settings: ISettings = await getWorkspaceSettings('black-formatter', workspace1);

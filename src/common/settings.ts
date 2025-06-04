@@ -210,7 +210,7 @@ export function logLegacySettings(): void {
                 traceWarn(`\n${JSON.stringify(legacyArgs, null, 4)}`);
             }
 
-            if (legacyPath.length > 0 && legacyPath !== 'black') {
+            if (legacyPath.length > 0 && legacyPath !== 'monochromatic') {
                 traceWarn(`"python.formatting.blackPath" is deprecated. Use "black-formatter.path" instead.`);
                 traceWarn(`"python.formatting.blackPath" for workspace ${workspace.uri.fsPath}:`);
                 traceWarn(`\n${JSON.stringify(legacyPath, null, 4)}`);

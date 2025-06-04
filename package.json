@@ -1,12 +1,12 @@
 {
-    "name": "black-formatter",
+    "name": "monochromatic-formatter",
     "displayName": "Black Formatter",
     "description": "%extension.description%",
     "version": "2025.3.0",
     "preview": true,
     "serverInfo": {
         "name": "Black",
-        "module": "black"
+        "module": "monochromatic"
     },
     "publisher": "ms-python",
     "license": "MIT",
@@ -26,7 +26,7 @@
     "keywords": [
         "python",
         "formatting",
-        "black"
+        "monochromatic"
     ],
     "engines": {
         "vscode": "^1.82.0"
@@ -47,7 +47,7 @@
     "activationEvents": [
         "onLanguage:python",
         "workspaceContains:pyproject.toml",
-        "workspaceContains:.black",
+        "workspaceContains:.monochromatic",
         "workspaceContains:*.py"
     ],
     "main": "./dist/extension.js",
@@ -71,7 +71,7 @@
             {
                 "filenames": [
                     "pyproject.toml",
-                    ".black"
+                    ".monochromatic"
                 ],
                 "id": "toml"
             }
@@ -121,15 +121,15 @@
                     "type": "array"
                 },
                 "black-formatter.path": {
-                    "default": [],
+                    "monochromatic": [],
                     "examples": [
                         [
                             "-m",
-                            "black",
+                            "monochromatic",
                             "~/.env/python"
                         ],
                         [
-                            "~/global_env/black"
+                            "~/global_env/monochromatic"
                         ]
                     ],
                     "items": {
